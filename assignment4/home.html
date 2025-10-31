@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>BeModel — Home</title>
+  <link rel="stylesheet" href="home.css" />
+</head>
+
+<body>
+
+  <!-- NAV -->
+  <header class="site-header">
+    <div class="nav-wrap">
+      <a class="brand" href="home.html">
+        <img src="assets/bemodel.png" alt="BeModel logo" class="brand-logo">BModel
+      </a>
+
+      <button id="hamburger" class="hamburger" aria-label="Open menu">☰</button>
+
+      
+      <nav id="main-nav" class="main-nav">
+        <ul>
+          <li><a href="home.html">Home</a></li>
+          <li><a href="ourstudio.html">Our Studio</a></li>
+          <li><a href="ourmodels.html">Our Models</a></li>
+          <li><a href="contact.html">Get In Touch</a></li>
+          <li><a href="buy.html">Buy Now</a></li>
+          <li><a href="crud.html">Model CRUD App</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO VIDEO -->
+  <section class="hero">
+    <video class="hero-video" autoplay muted loop playsinline>
+      <source src="assets/video.mp4" type="video/mp4" />
+      <img src="assets/gig1.jpg" alt="Studio fallback">
+    </video>
+
+    <div class="hero-overlay"></div>
+
+    <div class="hero-content fade-in">
+      <h1>We Capture Motion & Mood</h1>
+      <p>High fashion • Professional teams • Cinematic vision</p>
+      <a class="cta" href="ourmodels.html">Explore Models</a>
+    </div>
+  </section>
+
+  <!-- COLUMN SECTION -->
+  <section class="three-grid">
+    <div class="grid-item image-item fade-in">
+      <img src="assets/barbara.jpeg" alt="Image 1 - replace">
+    </div>
+
+    <div class="grid-item image-item fade-in" style="--delay:120ms">
+      <img src="assets/bella.jpeg" alt="Image 2 - replace">
+    </div>
+
+    <div class="grid-item text-item fade-in" style="--delay:240ms">
+      <h2>We show beauty</h2>
+      <p>We hire professionals who shape images that last — photographers, stylists, and creative directors.</p>
+      <a class="link" href="ourmodels.html">Learn More →</a>
+    </div>
+  </section>
+
+  <!-- OUR STUDIO SECTION -->
+  <section class="two-grid">
+    <div class="grid-item image-item fade-in">
+      <img src="assets/studio2.jpeg" alt="Studio wide image - replace">
+    </div>
+
+    <div class="grid-item text-item fade-in" style="--delay:120ms">
+      <h2>OUR STUDIO</h2>
+      <h3>Want to know our staff and studio?</h3>
+      <p>Meet our team — the hands and minds that bring every shoot to life.</p>
+      <a class="btn" href="ourstudio.html">Meet Our Staff</a>
+    </div>
+  </section>
+
+  <!-- OUR MODELS SECTION -->
+  <section class="models">
+    <h2 class="section-title"><strong>OUR MODELS</strong></h2>
+
+    <div class="models-grid">
+      <a class="model-card fade-in" href="bella.html">
+        <img src="assets/bella.jpeg" alt="Bella Hadid">
+        <p class="model-name">Bella Hadid</p>
+      </a>
+
+      <a class="model-card fade-in" href="gigi.html">
+        <img src="assets/gig1.jpg" alt="Gigi Hadid">
+        <p class="model-name">Gigi Hadid</p>
+      </a>
+
+      <a class="model-card fade-in" href="barbara.html">
+        <img src="assets/barbara.jpeg" alt="Barbara Palvin">
+        <p class="model-name">Barbara Palvin</p>
+      </a>
+
+      <a class="model-card fade-in" href="candice.html">
+        <img src="assets/candice.jpeg" alt="Candice Swanepoel">
+        <p class="model-name">Candice Swanepoel</p>
+      </a>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="contact-strip fade-in">
+    <p>Get in touch — bookings & enquiries</p>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="site-footer fade-in">
+    <img src="assets/bemodel.png" alt="BModel logo" class="footer-logo">
+    <p>© 2025 BeModel. All rights reserved.</p>
+  </footer>
+
+  <!-- JS -->
+  <script>
+    (function () {
+      const hamb = document.getElementById('hamburger');
+      const nav = document.getElementById('main-nav');
+      hamb.addEventListener('click', () => nav.classList.toggle('open'));
+
+      const obs = new IntersectionObserver((entries) => {
+        entries.forEach(e => {
+          if (e.isIntersecting) {
+            const el = e.target;
+            const delay = el.style.getPropertyValue('--delay') || '0ms';
+            el.style.transitionDelay = delay;
+            el.classList.add('visible');
+            obs.unobserve(el);
+          }
+        });
+      }, { threshold: 0.12 });
+
+      document.querySelectorAll('.fade-in').forEach(el => obs.observe(el));
+      document.querySelectorAll('#main-nav a').forEach(a => a.addEventListener('click', () => nav.classList.remove('open')));
+    })();
+  </script>
+
+</body>
+
+</html>
