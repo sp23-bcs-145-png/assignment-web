@@ -1,0 +1,101 @@
+
+:root {
+  --gold: #d4af37;
+  --gold-dark: #b48c29;
+  --black: #000000;
+  --card-bg: #0f0f0f;
+  --muted-white: #f7f7f7;
+}
+
+
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: Inter, system-ui, -apple-system, "Helvetica Neue", Arial;
+  background: #ffffff;
+  color: #ffffff;
+}
+
+
+.navbar {
+  background-color: var(--black);
+  border-bottom: 3px solid var(--gold);
+  padding: 0.6rem 1rem;
+}
+.logo-img { height: 38px; width: auto; object-fit: contain; }
+.navbar-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--gold);
+}
+.text-gold { color: var(--gold) !important; }
+.text-muted { color: rgba(255,255,255,0.65); }
+
+
+.card {
+  background: var(--card-bg);
+  color: #fff;
+  border: 1px solid rgba(212,175,55,0.12);
+  border-radius: 10px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+}
+
+
+.form-label.text-gold { color: var(--gold); font-weight:600; }
+.form-control {
+  background: #101010;
+  color: #fff;
+  border: 1px solid rgba(212,175,55,0.12);
+  border-radius: 6px;
+}
+.form-control:focus {
+  outline: none;
+  border-color: var(--gold-dark);
+  box-shadow: 0 0 8px rgba(212,175,55,0.12);
+}
+
+
+.btn-primary {
+  background: var(--gold);
+  border: none;
+  color: #000;
+  font-weight: 700;
+}
+.btn-primary:hover { background: var(--gold-dark); color: #000; }
+.btn-outline-gold {
+  background: transparent;
+  color: var(--gold);
+  border: 1px solid var(--gold);
+}
+.btn-outline-gold:hover {
+  background: var(--gold);
+  color: #000;
+}
+
+
+.table {
+  color: #fff;
+  margin-bottom: 0;
+}
+.table thead {
+  background: var(--gold);
+  color: #000;
+  font-weight: 700;
+}
+.table tbody tr:hover { background: rgba(212,175,55,0.06); }
+
+
+.spinner-border.text-gold { color: var(--gold) !important; }
+.small { font-size: 0.85rem; color: #dcdcdc; }
+
+
+.toast { border-left: 4px solid var(--gold); }
+
+
+.is-invalid { box-shadow: none; border: 2px solid #e74c3c !important; }
+
+
+@media (max-width: 768px) {
+  .navbar-title { font-size: 18px; }
+  .logo-img { height: 32px; }
+}
