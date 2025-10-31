@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Our Studio — BModel</title>
+  <link rel="stylesheet" href="ourstudio.css" />
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <header class="sub-header">
+    <div class="sub-inner">
+      <a class="back" href="home.html">← Home</a>
+      <h1>ourStudio</h1>
+    </div>
+  </header>
+
+  <!-- STUDIO IMAGE GALLERY -->
+  <section class="studio-gallery fade-in">
+    <img src="assets/studio2.jpeg" alt="Studio Wide Angle 1">
+    <img src="assets/studio.jpeg" alt="Studio Wide Angle 2">
+    <img src="assets/studio2.jpeg" alt="Studio Wide Angle 3">
+  </section>
+
+  <!-- TEXT SECTION -->
+  <section class="studio-about fade-in">
+    <h2>Inside Our Studio</h2>
+    <p>
+      Our studio is designed to inspire — a creative workspace where talent, design, and vision align.
+      Every corner is curated for shoots that tell lasting stories.
+    </p>
+  </section>
+
+  <!-- STAFF GRID -->
+  <section class="staff-grid fade-in">
+    <div class="pg-item">
+      <img src="assets/photographer.jpeg" alt="Photographer">
+      <p>PHOTOGRAPHER</p>
+    </div>
+
+    <div class="pg-item">
+      <img src="assets/stylist.jpeg" alt="Stylist">
+      <p>STYLIST</p>
+    </div>
+
+    <div class="pg-item">
+      <img src="assets/manager.jpeg" alt="Manager">
+      <p>MANAGER</p>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="sub-footer fade-in">
+    <img src="logo.png" alt="logo">
+    <p>© 2025 BModel. All rights reserved.</p>
+  </footer>
+
+  <!-- SCROLL FADE-IN ANIMATION -->
+  <script>
+    (function(){
+      const obs = new IntersectionObserver((entries)=> {
+        entries.forEach(e=>{
+          if(e.isIntersecting){ e.target.classList.add('visible'); obs.unobserve(e.target); }
+        });
+      }, {threshold:0.15});
+      document.querySelectorAll('.fade-in').forEach(el=> obs.observe(el));
+    })();
+  </script>
+
+</body>
+</html>
