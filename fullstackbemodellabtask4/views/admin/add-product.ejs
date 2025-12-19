@@ -1,0 +1,31 @@
+<%- include("layout") %>
+
+<h1>Add Product</h1>
+
+<form method="POST" action="/admin/products">
+  <input
+    type="text"
+    name="name"
+    placeholder="Product Name"
+    required
+  >
+
+  <input
+    type="number"
+    name="price"
+    placeholder="Price"
+    required
+  >
+
+  <textarea
+    name="description"
+    placeholder="Description"
+    required
+  ></textarea>
+
+  <button type="submit">Add Product</button>
+</form>
+
+</main>
+</body>
+</html>

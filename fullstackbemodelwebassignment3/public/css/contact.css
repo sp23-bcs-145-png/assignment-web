@@ -1,0 +1,156 @@
+
+
+body {
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+  background-color: #ffffff; 
+  color: #111; 
+  overflow-x: hidden;
+}
+
+/* HEADER */
+.sub-header {
+  background: linear-gradient(to right, #000, #333); 
+  color: white;
+  padding: 60px 20px;
+  text-align: center;
+  position: relative;
+  border-bottom: 4px solid #d4af37; 
+}
+
+.sub-header .back {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  color: #d4af37; 
+  text-decoration: none;
+  font-size: 1rem;
+  transition: color 0.3s ease;
+}
+
+.sub-header .back:hover {
+  color: white; 
+}
+
+.sub-header h1 {
+  font-size: 2.5rem;
+  font-weight: 600;
+  margin-top: 20px;
+  letter-spacing: 1px;
+}
+
+
+.contact-page {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 50px;
+  padding: 80px 10%;
+  background-color: #ffffff; 
+}
+
+.contact-info {
+  flex: 1 1 400px;
+  max-width: 500px;
+}
+
+.contact-info h2 {
+  font-weight: 600;
+  margin-bottom: 15px;
+  color: #000;
+  border-left: 5px solid #d4af37; 
+  padding-left: 10px;
+}
+
+.contact-info p {
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 10px;
+}
+
+
+.contact-info .desc {
+  margin-top: 20px;
+  color: #666;
+  font-size: 0.95rem;
+}
+
+
+.btn-contact {
+  display: inline-block;
+  margin-top: 25px;
+  background: #d4af37; 
+  color: black; 
+  padding: 12px 25px;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.btn-contact:hover {
+  background: black;
+  color: white;
+  transform: translateY(-2px);
+}
+
+/* IMAGE */
+.contact-image img {
+  width: 100%;
+  max-width: 500px;
+  border-radius: 20px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+  border: 3px solid #d4af37; 
+  object-fit: cover;
+}
+
+/* FOOTER */
+.sub-footer {
+  text-align: center;
+  background-color: #000;
+  color: #d4af37;
+  padding: 40px 20px;
+  border-top: 3px solid #d4af37;
+}
+
+.sub-footer img {
+  width: 70px;
+  height: auto;
+  opacity: 0.9;
+}
+
+.sub-footer p {
+  margin-top: 10px;
+  font-size: 0.9rem;
+  color: white;
+}
+
+/* ANIMATIONS */
+.fade-in {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s ease-out;
+}
+
+.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+@media (max-width: 768px) {
+  .sub-header h1 {
+    font-size: 2rem;
+  }
+
+  .contact-page {
+    padding: 60px 20px;
+    text-align: center;
+  }
+
+  .contact-image img {
+    margin-top: 20px;
+    border-radius: 15px;
+  }
+}

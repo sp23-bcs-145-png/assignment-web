@@ -1,0 +1,30 @@
+<%- include("layout") %>
+
+<h1>Edit Product</h1>
+
+<form method="POST" action="/admin/products/<%= product._id %>">
+  <input
+    type="text"
+    name="name"
+    value="<%= product.name %>"
+    required
+  >
+
+  <input
+    type="number"
+    name="price"
+    value="<%= product.price %>"
+    required
+  >
+
+  <textarea
+    name="description"
+    required
+  ><%= product.description %></textarea>
+
+  <button type="submit">Update Product</button>
+</form>
+
+</main>
+</body>
+</html>

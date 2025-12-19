@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Products</title>
+  <link rel="stylesheet" href="/css/home.css">
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+</head>
+<body style="background:#000;color:#fff;padding:20px;">
+  <h1>Product Listing</h1>
+
+  <form method="GET" action="/products" style="display:flex;gap:10px;flex-wrap:wrap;margin-bottom:20px;">
+    <select name="category">
+      <option value="">All Categories</option>
+      <% categories.forEach(c => { %>
+        <option value="<%= c %>" <%= filters.category === c ? "selected" : "" %>><%= c %></option>
+      <% }) %>
+    </select>
+
+    <input name="minPrice" placeholder="Min Price" value="<%= filters.minPrice %>">
+    <input name="maxPrice" placeholder="Max Price" value="<%= filters.maxPrice %>">
+
+    <input type="hidden" name="limit" value="<%= pagination.limit %>">
+    <button type="submit">Filter</button>
+  </form>
+
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;">
+    <% products.forEach(p => { %>
+      <div style="border:1px solid #333;padding:12px;border-radius:10px;">
+        <% if (p.image) { %>
+          <img src="<%= p.image %>" style="width:100%;height:140px;object-fit:cover;border-radius:8px;">
+        <% } %>
+        <h3><%= p.name %></h3>
+        <p><strong>$<%= p.price %></strong> — <%= p.category %></p>
+        <p style="opacity:.85;"><%= p.description %></p>
+      </div>
+    <% }) %>
+  </div>
+
+  <div style="margin-top:24px;display:flex;gap:10px;flex-wrap:wrap;">
+    <% 
+      const q = (k,v) => v ? `${k}=${encodeURIComponent(v)}` : "";
+      const base = [
+        q("limit", pagination.limit),
+        q("category", filters.category),
+        q("minPrice", filters.minPrice),
+        q("maxPrice", filters.maxPrice)
+      ].filter(Boolean).join("&");
+    %>
+
+    <% if (pagination.page > 1) { %>
+      <a href="/products?<%= base %>&page=<%= pagination.page - 1 %>">Prev</a>
+    <% } %>
+
+    <span>Page <%= pagination.page %> / <%= pagination.totalPages %></span>
+
+    <% if (pagination.page < pagination.totalPages) { %>
+      <a href="/products?<%= base %>&page=<%= pagination.page + 1 %>">Next</a>
+    <% } %>
+  </div>
+
+  <p style="margin-top:20px;"><a href="/" style="color:#d4af37;">Back Home</a></p>
+</body>
+</html>

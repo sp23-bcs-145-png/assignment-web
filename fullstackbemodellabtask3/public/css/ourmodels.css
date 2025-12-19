@@ -1,0 +1,151 @@
+
+:root {
+  --black: #000000;
+  --gold: #d4af37;
+  --white: #ffffff;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: var(--black);
+  font-family: "Poppins", sans-serif;
+  color: var(--white);
+  overflow-x: hidden;
+}
+
+
+.main-header {
+  padding: 1.8rem 0;
+  border-bottom: 2px solid var(--gold);
+  background: var(--black);
+}
+
+.header-inner {
+  width: 90%;
+  max-width: 1400px;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.page-title {
+  font-size: 3rem;
+  font-weight: 600;
+  color: var(--gold);
+  letter-spacing: 1px;
+}
+
+.back {
+  color: var(--white);
+  text-decoration: none;
+  font-size: 1rem;
+  transition: color .3s ease;
+}
+.back:hover {
+  color: var(--gold);
+}
+
+
+.intro {
+  width: 90%;
+  max-width: 1300px;
+  margin: 3rem auto;
+  text-align: center;
+}
+
+.intro h2 {
+  color: var(--gold);
+  font-size: 2.2rem;
+  margin-bottom: 0.8rem;
+  letter-spacing: 1px;
+}
+
+.intro p {
+  color: var(--white);
+  opacity: 0.85;
+  font-size: 1.1rem;
+}
+
+
+.rmodels-grid {
+  width: 90%;
+  max-width: 1500px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* ALWAYS 4 */
+  gap: 1.6rem;
+  padding-bottom: 5rem;
+}
+
+.ourmodels-card {
+  border: 1px solid var(--gold);
+  background: #0d0d0d;
+  border-radius: 8px;
+  overflow: hidden;
+  text-decoration: none;
+  color: var(--white);
+  transition: transform .3s ease, box-shadow .3s ease;
+}
+
+.ourmodels-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 0 10px var(--gold);
+}
+
+/* Uniform image size */
+.ourmodels-card img {
+  width: 100%;
+  height: 260px;
+  object-fit: cover;
+}
+
+.ourmodels-card p {
+  text-align: center;
+  padding: 1rem;
+  font-size: 1rem;
+  color: var(--gold);
+  font-weight: 500;
+}
+
+
+.fade-in {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity .6s ease, transform .6s ease;
+}
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+.footer {
+  text-align: center;
+  padding: 2rem;
+  border-top: 2px solid var(--gold);
+  font-size: 0.9rem;
+  opacity: 0.7;
+}
+
+
+@media (max-width: 992px) {
+  .rmodels-grid {
+    grid-template-columns: repeat(2, 1fr); /* Tablet view */
+  }
+}
+
+@media (max-width: 600px) {
+  .rmodels-grid {
+    grid-template-columns: 1fr; /* Mobile view */
+  }
+
+  .ourmodels-card img {
+    height: 320px;
+  }
+}

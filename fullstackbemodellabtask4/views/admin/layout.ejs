@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Admin Panel</title>
+  <style>
+    body {
+      margin:0;
+      font-family: Arial;
+      display:flex;
+      background:#111;
+      color:#fff;
+    }
+
+    nav {
+      width:220px;
+      background:#000;
+      padding:20px;
+    }
+
+    nav a {
+      display:block;
+      color:#d4af37;
+      margin:10px 0;
+      text-decoration:none;
+    }
+
+    main {
+      flex:1;
+      padding:30px;
+    }
+  </style>
+</head>
+
+<body>
+  <nav>
+    <h3>Admin Panel</h3>
+    <p><%= admin.email %></p>
+    <a href="/admin">Dashboard</a>
+    <a href="/admin/products">Products</a>
+    <a href="/admin/products/new">Add Product</a>
+    <a href="/admin/orders">Orders</a>
+    <a href="/">Public Site</a>
+    <a href="/logout">Logout</a>
+  </nav>
+
+  <!-- CONTENT WILL COME FROM PAGE FILE -->
+  <main>

@@ -1,0 +1,43 @@
+<%- include("layout") %>
+
+<h1>Products</h1>
+
+<a href="/admin/products/new">
+  <button>Add New Product</button>
+</a>
+
+<table border="1" cellpadding="10" cellspacing="0" style="margin-top:20px;width:100%;">
+  <tr>
+    <th>Name</th>
+    <th>Price</th>
+    <th>Description</th>
+    <th>Actions</th>
+  </tr>
+
+  <% products.forEach(p => { %>
+    <tr>
+      <td><%= p.name %></td>
+      <td>$<%= p.price %></td>
+      <td><%= p.description %></td>
+      <td>
+        <a href="/admin/products/<%= p._id %>/edit">
+          <button>Edit</button>
+        </a>
+
+        <form
+          action="/admin/products/<%= p._id %>/delete"
+          method="POST"
+          style="display:inline;"
+        >
+          <button onclick="return confirm('Delete this product?')">
+            Delete
+          </button>
+        </form>
+      </td>
+    </tr>
+  <% }) %>
+</table>
+
+</main>
+</body>
+</html>

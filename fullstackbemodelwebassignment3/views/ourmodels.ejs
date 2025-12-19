@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Our Models — BeModel</title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/css/ourmodels.css" />
+</head>
+
+<body>
+
+<header class="main-header">
+  <div class="header-inner">
+    <a class="back" href="/">← Home</a>
+    <h1 class="page-title">Our Models</h1>
+  </div>
+</header>
+
+<section class="intro fade-in">
+  <h2>Meet our talent</h2>
+  <p>
+    BeModel represents top-tier professional models worldwide.
+    Beauty, confidence, and creativity — your vision brought to life.
+  </p>
+</section>
+
+<!-- MODEL GRID -->
+<section class="ourmodels-grid">
+
+  <!-- BELLA -->
+  <a class="ourmodels-card fade-in" href="/models/bella">
+    <img src="/assets/bella.jpeg" alt="Bella Hadid">
+    <p>Bella Hadid</p>
+  </a>
+
+  <!-- GIGI -->
+  <a class="ourmodels-card fade-in" href="/models/gigi">
+    <img src="/assets/gig.jpeg" alt="Gigi Hadid">
+    <p>Gigi Hadid</p>
+  </a>
+
+  <!-- BARBARA -->
+  <a class="ourmodels-card fade-in" href="/models/barbara">
+    <img src="/assets/barbara.jpeg" alt="Barbara Palvin">
+    <p>Barbara Palvin</p>
+  </a>
+
+  <!-- CANDICE -->
+  <a class="ourmodels-card fade-in" href="/models/candice">
+    <img src="/assets/candice.jpeg" alt="Candice Swanepoel">
+    <p>Candice Swanepoel</p>
+  </a>
+
+</section>
+
+<footer class="footer">
+  <p>© 2025 BeModel. All rights reserved.</p>
+</footer>
+
+<script>
+  (function(){
+    const obs = new IntersectionObserver((entries)=> {
+      entries.forEach(e=>{
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+          obs.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.12 });
+
+    document.querySelectorAll('.fade-in').forEach(el => obs.observe(el));
+  })();
+</script>
+
+</body>
+</html>
