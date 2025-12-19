@@ -1,0 +1,24 @@
+<style>
+body { background:#000; color:#fff; font-family:sans-serif }
+.card { max-width:800px; margin:auto; padding:30px }
+.gold { color:#d4af37 }
+button { background:#d4af37; border:none; padding:10px 20px }
+</style>
+
+<div class="card">
+  <h2 class="gold">Order Preview</h2>
+
+  <% cart.forEach(item => { %>
+    <p><%= item.name %> x <%= item.quantity %> — ₹<%= item.price %></p>
+  <% }) %>
+
+  <hr>
+  <p>Subtotal: ₹<%= subtotal %></p>
+  <p>Discount: ₹<%= discount %></p>
+  <h3 class="gold">Total: ₹<%= total %></h3>
+
+  <form method="POST" action="/order/confirm">
+    <input name="email" placeholder="Email" required />
+    <button>Confirm Order</button>
+  </form>
+</div>

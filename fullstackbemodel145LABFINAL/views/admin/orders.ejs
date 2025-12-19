@@ -1,0 +1,88 @@
+<%- include("layout") %>
+
+<h1>Orders</h1>
+
+<table
+  border="1"
+  cellpadding="10"
+  cellspacing="0"
+  style="margin-top:20px;width:100%;"
+>
+  <tr>
+    <th>Name</th>
+    <th>Email</th>
+    <th>Payment</th>
+    <th>Items</th>
+    <th>Total</th>
+    <th>Status</th>
+    <th>Action</th>
+    <th>Date</th>
+  </tr>
+
+  <% orders.forEach(o => { %>
+    <tr>
+      <!-- Customer info -->
+      <td><%= o.name || "—" %></td>
+      <td><%= o.email %></td>
+      <td><%= o.payment || "—" %></td>
+
+      <!-- Items -->
+      <td>
+        <% if (o.items && o.items.length) { %>
+          <ul>
+            <% o.items.forEach(i => { %>
+              <li><%= i.name %> — $<%= i.price %></li>
+            <% }) %>
+          </ul>
+        <% } else { %>
+          <span>
+            Single package:
+            <%= o.packageName %> ($<%= o.packagePrice %>)
+          </span>
+        <% } %>
+      </td>
+
+      <!-- Total -->
+      <td>$<%= o.total || o.packagePrice || 0 %></td>
+
+      <!-- STATUS -->
+      <td>
+        <strong><%= o.status || "Placed" %></strong>
+      </td>
+
+      <!-- ACTION (SAFE CHECK) -->
+      <td>
+        <% if (typeof nextStatus !== "undefined" && nextStatus[o.status]) { %>
+          <form
+            method="POST"
+            action="/admin/orders/<%= o._id %>/advance"
+            style="margin:0;"
+          >
+            <button
+              style="
+                background:#d4af37;
+                border:none;
+                padding:6px 10px;
+                cursor:pointer;
+                font-weight:bold;
+              "
+            >
+              Mark as <%= nextStatus[o.status] %>
+            </button>
+          </form>
+        <% } else { %>
+          <span style="color:#999;">Completed</span>
+        <% } %>
+      </td>
+
+      <!-- Date -->
+      <td>
+        <%= o.createdAt ? o.createdAt.toDateString() : "" %>
+      </td>
+    </tr>
+  <% }) %>
+</table>
+
+</main>
+</body>
+</html>

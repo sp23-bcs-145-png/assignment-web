@@ -1,0 +1,15 @@
+<style>
+body { background:#000; color:#fff }
+button { background:#d4af37; border:none; padding:5px 10px }
+</style>
+
+<h2>Admin Orders</h2>
+
+<% orders.forEach(order => { %>
+  <p>
+    <%= order.email %> — <%= order.status %>
+    <form method="POST" action="/admin/orders/<%= order._id %>/advance">
+      <button>Advance Status</button>
+    </form>
+  </p>
+<% }) %>

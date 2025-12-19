@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Contact — BModel</title>
+
+  <!-- FIXED CSS PATH -->
+  <link rel="stylesheet" href="/css/contact.css" />
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="sub-header">
+    <div class="sub-inner">
+
+      <!-- FIXED EXPRESS HOME LINK -->
+      <a class="back" href="/">← Home</a>
+
+      <h1>Get In Touch</h1>
+    </div>
+  </header>
+
+  <!-- CONTACT SECTION -->
+  <section class="contact-page">
+
+    <div class="contact-info fade-in">
+      <h2><em>We’d love to hear from you</em></h2>
+      <p><strong>Email:</strong> contact@bmodel.com</p>
+      <p><strong>Phone:</strong> +92-300-1234567</p>
+      <p><strong>Address:</strong> BModel Studio, Lahore, Pakistan</p>
+
+      <p class="desc">
+        Whether you’re a model looking to join our agency, a brand interested in collaboration,
+        or someone who simply loves creative visuals — reach out and let’s talk.
+      </p>
+
+      <!-- EMAIL LINK REMAINS THE SAME -->
+      <a href="mailto:contact@bemodel.com" class="btn-contact">Send us an Email</a>
+    </div>
+
+    <div class="contact-image fade-in">
+      <img src="/assets/studio.jpeg" alt="Contact our studio">
+    </div>
+
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="sub-footer fade-in">
+    <img src="/assets/bemodel.png" alt="BeModel Logo">
+    <p>© 2025 BModel. All rights reserved.</p>
+  </footer>
+
+  <!-- SCROLL FADE-IN EFFECT -->
+  <script>
+    (function(){
+      const obs = new IntersectionObserver((entries)=>{
+        entries.forEach(e=>{
+          if(e.isIntersecting){
+            e.target.classList.add('visible');
+            obs.unobserve(e.target);
+          }
+        });
+      }, {threshold:0.12});
+
+      document.querySelectorAll('.fade-in').forEach(el=> obs.observe(el));
+    })();
+  </script>
+
+</body>
+</html>

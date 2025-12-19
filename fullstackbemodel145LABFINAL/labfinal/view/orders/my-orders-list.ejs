@@ -1,0 +1,14 @@
+<style>
+body { background:#000; color:#fff }
+.gold { color:#d4af37 }
+</style>
+
+<h2 class="gold">Order History</h2>
+
+<% orders.forEach(order => { %>
+  <p>
+    <strong><%= order._id %></strong><br>
+    <%= order.status %> — ₹<%= order.total %>
+  </p>
+  <hr>
+<% }) %>
